@@ -1,0 +1,118 @@
+modules = ["nodejs-20", "web", "postgresql-16"]
+run = "npm run dev"
+hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["jq"]
+
+[deployment]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 34679
+externalPort = 5173
+
+[[ports]]
+localPort = 36769
+externalPort = 8008
+
+[[ports]]
+localPort = 37651
+externalPort = 4200
+
+[[ports]]
+localPort = 37765
+externalPort = 3003
+
+[[ports]]
+localPort = 37797
+externalPort = 3001
+
+[[ports]]
+localPort = 40875
+externalPort = 3000
+
+[[ports]]
+localPort = 40991
+externalPort = 6000
+
+[[ports]]
+localPort = 41347
+externalPort = 3002
+
+[[ports]]
+localPort = 42127
+externalPort = 8080
+
+[[ports]]
+localPort = 43979
+externalPort = 5000
+
+[[ports]]
+localPort = 46111
+externalPort = 8000
+
+[env]
+PORT = "5000"
+
+[agent]
+integrations = ["javascript_openai:1.0.0", "javascript_gemini:1.0.0"]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Backend API"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Frontend"
+
+[[workflows.workflow]]
+name = "Backend API"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd backend && PORT=3000 npm run dev"
+waitForPort = 3000
+
+[[workflows.workflow]]
+name = "Frontend"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd frontend && npm run dev"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[userenv]
+
+[userenv.shared]
+EMAIL_HOST = "smtp.office365.com"
+EMAIL_PORT = "587"
+EMAIL_FROM = "abhilash.t@esolglobal.com"

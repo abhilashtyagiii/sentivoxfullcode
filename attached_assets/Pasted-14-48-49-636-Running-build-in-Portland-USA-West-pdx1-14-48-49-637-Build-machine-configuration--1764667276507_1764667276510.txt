@@ -1,0 +1,33 @@
+14:48:49.636 Running build in Portland, USA (West) – pdx1
+14:48:49.637 Build machine configuration: 2 cores, 8 GB
+14:48:49.742 Cloning github.com/abhilashtyagiii/sentivoxfrontend (Branch: main, Commit: d6964a9)
+14:48:49.744 Previous build caches not available.
+14:48:50.240 Cloning completed: 497.000ms
+14:48:50.600 Running "vercel build"
+14:48:51.052 Vercel CLI 48.12.0
+14:48:51.665 Installing dependencies...
+14:49:27.412 npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+14:49:34.799 
+14:49:34.800 added 705 packages in 43s
+14:49:34.801 
+14:49:34.802 80 packages are looking for funding
+14:49:34.802   run `npm fund` for details
+14:49:34.855 Running "npm run build"
+14:49:34.968 
+14:49:34.969 > rest-express@1.0.0 build
+14:49:34.969 > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+14:49:34.970 
+14:49:35.263 [36mvite v5.4.21 [32mbuilding for production...[36m[39m
+14:49:35.319 transforming...
+14:49:37.851 [32m✓[39m 1104 modules transformed.
+14:49:37.857 [31mx[39m Build failed in 2.57s
+14:49:37.858 [31merror during build:
+14:49:37.858 [31m[vite:asset] Could not load /vercel/path0/attached_assets/esolutions-logo.png (imported by client/src/pages/Login.tsx): ENOENT: no such file or directory, open '/vercel/path0/attached_assets/esolutions-logo.png'[31m
+14:49:37.858     at async open (node:internal/fs/promises:642:25)
+14:49:37.858     at async Object.readFile (node:internal/fs/promises:1279:14)
+14:49:37.858     at async fileToBuiltUrl (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:20428:19)
+14:49:37.858     at async Object.load (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:20328:17)
+14:49:37.858     at async PluginDriver.hookFirstAndGetPlugin (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:22333:28)
+14:49:37.858     at async file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:21333:33
+14:49:37.859     at async Queue.work (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:22561:32)[39m
+14:49:37.887 Error: Command "npm run build" exited with 1

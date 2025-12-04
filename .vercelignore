@@ -1,0 +1,20 @@
+# Ignore backend files for Vercel frontend deployment
+server/
+api/
+uploads/
+dist/
+*.log
+.env
+.env.local
+.env.production
+node_modules/
+
+# Keep only what's needed for frontend
+!client/
+!shared/
+!vite.config.ts
+!tailwind.config.ts
+!postcss.config.js
+!tsconfig.json
+!package.json
+!package-lock.json
